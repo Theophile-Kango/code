@@ -118,6 +118,59 @@ class Stack
 
 end
 
+class Queue
+  
+  def add(number)
+    # your code here
+    node = Node.new(number)
+      if @head == nil
+         @head = node
+        return @head
+      end
+ 
+      current = @head  
+    
+      while current.next_node != nil
+        current = current.next_node
+      end
+   
+      current.next_node = node
+  end
+  
+  def remove
+    # your code here
+    if @head == nil
+      return -1
+    else
+      current = @head 
+      new_current = current.next_node 
+      @head = new_current
+      return current.value
+    end
+  end
+end
+
+queue = Queue.new
+
+queue.add(3)
+queue.add(5)
+puts queue.remove
+# => 3
+
+queue.add(2)
+queue.add(7)
+puts queue.remove
+# => 5
+
+puts queue.remove
+# => 2
+
+puts queue.remove
+# => 7
+
+puts queue.remove
+# => -1
+
 
 stack = Stack.new
 stack.push(3)
