@@ -94,7 +94,7 @@ class LinkedList
     return current.value
   end
     
-end 
+end  
 
 class Stack 
 
