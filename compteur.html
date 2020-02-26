@@ -70,11 +70,13 @@
     .add {
         background: rgb(14, 83, 14);
         width: 80%;
+        cursor: pointer;
     }
 
     .reduce {
         background: rgb(207, 121, 121);
         width: 80%;
+        cursor: pointer;
     }
 
     .numbers {
@@ -149,54 +151,79 @@
 
         let button = document.querySelectorAll('button');
 
+        let add = document.querySelector('.add');
+
+        let reduce = document.querySelector('.reduce');
+
         screen.textContent = '0';
 
+
         button.forEach(element => {
-            
             element.addEventListener('click', (number) => {
-                    number = Number(element.value);
+                number = Number(element.value);
 
-            if (element.className == "positive") {
-                
-                    let arr = []
-                    let max = 10;
-
-                    if (number < 0) {
-                        screen.textContent = 'Wrong value';
-                    }
-                    else if (number >= max) {
-                        screen.textContent = 'You reached the max value';
-                    }
-                    else {
-                        while (number <= max) {
-                            screen.textContent = '';
-                            arr.push(number)
-                            number++;
-                        }
-                        screen.textContent = arr;
-                    }
-
-                
-            } else {
+                if (element.className == "positive") {
 
                     let arr = [];
                     let max = 10;
-                    if (number < 0) {
-                        return "Wrong value";
+
+                    while (number <= max) {
+                        screen.textContent = '';
+                        arr.push(number)
+                        number++;
                     }
-                    else if (number >= max) {
-                        return "You reached the max value"
+                    screen.textContent = arr;
+
+
+
+                } else {
+
+                    let arr = [];
+                    let max = 10;
+
+                    while (number <= max) {
+                        arr.push(max)
+                        max--;
                     }
-                    else {
-                        while (number <= max) {
-                            arr.push(max)
-                            max--;
-                        }
-                        screen.textContent = arr;
-                    }
-            }
+                    screen.textContent = arr;
+
+                }
+            });
         });
-    });
+        let arr = [];
+        let i = 0;
+        add.addEventListener('click', () => {
+            screen.textContent = '';
+            let max = 10;
+
+            arr.push(i);
+            i += 1;
+            if (arr[arr.length - 1] > max) {
+                screen.textContent = "Wrong value";
+            }
+            else if (arr[arr.length - 1] == max) {
+                screen.textContent = "You reached the max value"
+            } else {
+                screen.textContent = arr;
+            }
+
+        });
+
+        reduce.addEventListener('click', () => {
+
+
+
+            if (arr.length == 0) {
+                screen.textContent = "You can't go behind 0";
+
+
+            } else {
+                screen.textContent = arr;
+                arr.pop();
+                i -= 1;
+            }
+
+        });
 
 
     </script>
