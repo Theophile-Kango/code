@@ -71,12 +71,22 @@
         background: rgb(14, 83, 14);
         width: 80%;
         cursor: pointer;
+        outline: none;
+    }
+
+    .add:hover{
+        background: green;
     }
 
     .reduce {
         background: rgb(207, 121, 121);
         width: 80%;
         cursor: pointer;
+        outline: none;
+    }
+
+    .reduce:hover{
+        background: red;
     }
 
     .numbers {
@@ -211,12 +221,8 @@
 
         reduce.addEventListener('click', () => {
 
-
-
             if (arr.length == 0) {
                 screen.textContent = "You can't go behind 0";
-
-
             } else {
                 screen.textContent = arr;
                 arr.pop();
