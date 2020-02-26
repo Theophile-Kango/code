@@ -41,7 +41,6 @@ class Stack
         if current.value == @min_stack.first.value
             @min_stack.pop
         end
-        @min_stack.pop
         return current
     end
     def min
@@ -80,15 +79,14 @@ class Min_stack
     end
 
     def pop
-
-        if @first == nil
-            return -1
-          else
-            current = @first
-            new_current = current.next_node 
-            @first = new_current
-            return current
-          end
+        
+        current = @first
+        if @length == 1
+            @last = nil
+        end
+        @first = @first.next_node
+        @length -= 1
+        return current
     end
 end
 
@@ -96,20 +94,21 @@ stack = Stack.new
 
 stack.push(3)
 stack.push(5)
-#puts stack.min
+puts stack.min
 # => 3
 
 stack.pop
 stack.push(7)
-#puts stack.min
+puts stack.min
 # => 3
 
 stack.push(2)
-#puts stack.min
+puts stack.min
 # => 2
 
 stack.pop
-#puts stack.min
+
+puts stack.min
 # => 3
 
 p stack
