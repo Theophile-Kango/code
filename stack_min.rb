@@ -10,33 +10,88 @@ end
 class Stack
     def initialize
         @first = nil
+        @last = nil
+        @length = 0
+        @min_stack = Min_stack.new
     end
     def push(number)
-        @first = Node.new(number, @first)
+        node = Node.new(number, @first)
+        if(@length == 0)
+            @first = node
+            @last = node
+        else
+            current = @first
+            @first = node
+            @first.next_node = current
+        end
+        @min_stack.push(number)
+        @length += 1
+        return @length
     end
     def pop
-        if @first.nil?
+        if @length == 0
             return -1
-        else
-            current = @first.value
-            @first = @first.next_node
-            return current
         end
+            current = @first
+        if @length == 1
+            @last = nil
+        end
+        @first = @first.next_node
+        @length -= 1
+        if current.value == @min_stack.first.value
+            @min_stack.pop
+        end
+        return current
     end
     def min
-        stack_min = Stack.new
-        stack_max = Stack.new
-        head = @first
-        
-        stack_max.push(head)
-        
-        return stack_max
-      
+      if @length == 0 
+        return -1
+      else
+        return @min_stack.first.value
+      end
+
+    end
+end
+
+class Min_stack
+    attr_accessor :first, :last, :length
+    def initialize
+        @first = nil
+        @last = nil
+        @length = 0
+    end
+
+    def push(number)
+        node = Node.new(number, @next_node)
+        if @length == 0 
+            @first = node
+            @last = node
+            @length += 1
+        else
+            if number < @first.value
+                current = @first
+                @first = node
+                @first.next_node = node
+                @length += 1
+            end
+        end
+        return @length
+    end
+
+    def pop
+        current = @first
+        if @length == nil
+            @last = nil
+        end
+        @first = @first.next_node
+        @length -= 1
+        return current
     end
 end
 
 stack = Stack.new
 stack.push(1)
+stack.pop
 stack.push(20)
 stack.push(5)
 stack.push(3)
