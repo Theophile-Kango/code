@@ -18,6 +18,7 @@ def palindromeIndex(s)
             end    
         end
     end
+   
 end
 
 p palindromeIndex("baa")

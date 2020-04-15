@@ -1,5 +1,4 @@
 def fibonacci(n)
-  
     if(n >= 2)
        return fibonacci(n - 1) + fibonacci(n - 2)
     else
@@ -16,5 +15,5 @@ def fibonacci(n)
     end
   end
   
-  p factorial(4)
-  p fibonacci(4)
+  #p factorial(4)
+  p fibonacci(5)
