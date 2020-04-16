@@ -1,24 +1,16 @@
-def palindromeIndex(s)
-    s = s.downcase();
-    s_arr = s.split("")
-    s_r = s_arr.reverse()
 
-    if s_arr == s_r
-        return -1
+def palindromeIndex(s) 
+    (0...s.length/2).each do |i| 
+        i_rev = s.length - 1 - i 
+        if s[i] != s[i_rev] 
+            if s[i+1] == s[i_rev] && s[i+2] == s[i_rev-1] 
+                return i 
+            else 
+                return i_rev 
+            end 
+        end 
+    end 
+    return -1 
+end 
 
-    else
-        del = s_arr.delete_at(0)
-        s_r = s_arr.reverse()
-        s_arr.length.times do |i|
-            if s_arr != s_r
-                s_arr.insert(i,del) 
-                del = s_arr.delete_at(i + 1)
-            elsif s_arr == s_r
-                return i
-            end    
-        end
-    end
-   
-end
-
-p palindromeIndex("baa")
+p palindromeIndex("aab")
