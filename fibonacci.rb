@@ -13,5 +13,16 @@ def fibonachi(num)
     
 end
 
+# def yeller(arr)
+#     arr.map(&:upcase).join
+# end
+# p yeller(['o', 'l', 'd'])
+
+# def random_subdomain
+#     ('a'..'z').to_a.shuffle[0..7].join
+# end
+# def string_shuffle(s)
+#     s.split('').shuffle.join
+# end
 
 p fibonachi(10)
