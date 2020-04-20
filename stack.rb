@@ -1,14 +1,14 @@
 class Node
     attr_accessor :value, :next_node
     def initialize(value, next_node = nil)
-	    @value = value
+      @value = value
       @next_node = next_node
     end
 end
 
 class LinkedList
   
-   def initialize
+    def initialize
       @head = nil
       @tail = nil
     end
@@ -16,20 +16,20 @@ class LinkedList
       
       node = Node.new(number)
       if @head == nil
-         @head = node
+        @head = node
         return @head
       end
- 
+
       current = @head  
     
       while current.next_node != nil
         current = current.next_node
       end
-   
+
       current.next_node = node
     end
 
-   def add_at(index,item)
+    def add_at(index,item)
     if @head == nil             
         node = Node.new(item)
         @head = node
@@ -44,7 +44,7 @@ class LinkedList
       index -= 1
       current = @head
       before_current = @head
- 
+
       index.times do
           before_current = current.next_node
       end 
@@ -75,7 +75,7 @@ class LinkedList
         after_current = current.next_node
         before_current.next_node=after_current
       end
- end
+end
 
   def get_node(index)
     current = @head
@@ -103,7 +103,7 @@ class Stack
   end
 
   def push(number)
-     @first = Node.new(number, @first)
+    @first = Node.new(number, @first)
   end
   
   def pop

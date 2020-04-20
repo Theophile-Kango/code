@@ -13,4 +13,4 @@ def palindromeIndex(s)
     return -1 
 end 
 
-p palindromeIndex("aab")
+p palindromeIndex("racebcar")
