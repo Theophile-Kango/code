@@ -63,7 +63,7 @@ def balanced_brackets?(string)
     end
 end
 
-puts balanced_brackets?('world)')
+puts balanced_brackets?('{(})')
 # => true
 
 puts balanced_brackets?('([)]')
