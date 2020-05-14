@@ -1,11 +1,23 @@
 def pickingNumbers(a)
     # Write your code here
-    #sub_arr = a.sort.each_cons(2).map{|a,b| (a-b).abs < 2 }
-    b = 0
-    c = a.sort - a.sort.each_cons(2).map{|a,b| a if b-a > 1 }.compact
-    #b += 1 if c.length == a.length
-    b = c.sort.each_cons(3).map{|a,b,c| a if  (c-a < 2) }.count 
+    a.sort!
     
+    big_arr = []
+    a.length.times do |i|
+        j = 0
+        arr = []
+        (i..a.length-1).each do |j|
+            if (a[i] - a[j]).abs <= 1
+                arr << a[j]
+            else
+                break
+            end
+            
+        end
+        
+        big_arr << arr.length
+    end
+    big_arr.max
 end
 
-p pickingNumbers([98, 3, 99, 1, 97, 2])
+p pickingNumbers([1,1,2,2,4,4,5,5,5])
