@@ -4,7 +4,6 @@ def pickingNumbers(a)
     
     big_arr = []
     a.length.times do |i|
-        j = 0
         arr = []
         (i..a.length-1).each do |j|
             if (a[i] - a[j]).abs <= 1
