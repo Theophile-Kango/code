@@ -2,7 +2,7 @@ def beautifulTriplets(d, arr)
     count = 0
     arr.length.times do |i|
         (i..arr.length-1).each do |j|
-            if ((arr[i] + d).abs == arr[j]) && (arr.include?(arr[j] + d))
+            if ((arr[i] + d) == arr[j]) && (arr.include?(arr[j] + d))
                 count += 1
             end
         end
