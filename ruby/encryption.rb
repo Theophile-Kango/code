@@ -8,10 +8,11 @@ def encryption(s)
     k = 0
     y.times do |i|
         (s.length % x == 0) && (s.length % y != 0) ? l = 0 : l = 1
-        while j < s.length do
+        while j < s.length do |n|
+            
             string << s[j] 
             if s.length % x != 0 && s.length % y != 0
-                string << ' ' if l == x || l  == y - i
+                string << ' ' if l == x || l  == y-n
             else
                 string << ' ' if l == x
             end
