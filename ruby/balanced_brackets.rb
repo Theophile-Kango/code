@@ -43,12 +43,13 @@ def balanced_brackets?(string)
     string.each do |char|
 
         if start_char.any?(char)
-            stack.push(char)
+            stack.push(char) 
         else
             if stack.nil?
                 return false
             end
             top = stack.pop
+             
             if (top == '[' and char != ']') || 
                 (top == '(' and char != ')') || 
                 (top == '{' and char != '}') ||
@@ -63,7 +64,7 @@ def balanced_brackets?(string)
     end
 end
 
-puts balanced_brackets?('{(})')
+puts balanced_brackets?("hi())(")
 # => true
 
 puts balanced_brackets?('([)]')
