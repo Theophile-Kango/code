@@ -22,7 +22,7 @@ def tree_height(tree_as_list)
   heights.push(total_height)
     
  end
- puts heights[-1]
+    heights[-1]
 end
 
 puts tree_height([2, 7, 5, 2, 6, 0, 9])
