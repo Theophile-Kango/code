@@ -1,8 +1,18 @@
 def fairRations(b)
-    return 'NO' if b.sum.odd?
-    count = 0
-    b.length.times{ |i|  count += 2 if b[i].odd? }
-    count
+   lastID = -1
+   count = 0
+
+   b.length.times do |i|
+    if b[i].odd?
+        if(lastID == -1)
+            lastID = i
+        else
+            count += (i - lastID)* 2
+            lastID = -1
+        end
+    end
+   end
+   lastID == -1 ? count : 'NO'
 end
 
 puts fairRations([2, 3, 4, 5, 6])
