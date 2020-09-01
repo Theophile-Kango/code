@@ -1,24 +1,25 @@
-
 def depth_first_search(graph)
-    # write your code here
-    stack = [0]
-    result = []
-    visited = []
-  
+    discovered = Array.new(graph.keys.length, false)
+    path = []
+    stack = []
+    stack.push(0)
+    discovered[0] = true
     until stack.empty?
-      p stack
-      head = stack.pop
-      result << head unless visited.include? head
-      visited << head
-      return result if graph[head].nil?
-  
-      not_visited = graph[head].reject { |node| visited.include? node }
-  
-      stack += not_visited.reverse
+      current = stack.pop
+      # We're processing the current element at this point. So, push the current node to the result path 
+      path.push(current)
+      # Explore the adjacent nodes of the current node in reverse order
+      graph[current].reverse_each do |adjacent|
+        # If it had not been discovered previously, push it to the end of the stack and mark it discoreved
+        unless discovered[adjacent]
+          stack.push(adjacent)
+          discovered[adjacent] = true
+        end
+      end
     end
+    path
+  end
   
-    result
-end
 
 p depth_first_search({
     0 => [2], 
