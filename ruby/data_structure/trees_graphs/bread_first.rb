@@ -18,23 +18,23 @@
 # end
 
 def bfs(graph)
-   discovered  = Array.new(graph.keys.length, false)
-   queue = []
+   discovered = Array.new(graph.keys.length, false)
    path = []
+   queue = []
 
-   discovered[0] = true
    queue << 0
+   discovered[0] = true
 
-   until queue.empty?
-    current = queue.shift
-    path << current 
-    graph[current].each do |adjacent|
-        unless discovered[adjacent]
-            queue << adjacent
-            discovered[adjacent] = true
+    until queue.empty?
+        current = queue.shift
+        path << current
+        graph[current].each do |adjacent|
+            unless discovered[adjacent]
+                queue << adjacent
+                discovered[adjacent] = true
+            end
         end
     end
-   end
    path
 end
 
