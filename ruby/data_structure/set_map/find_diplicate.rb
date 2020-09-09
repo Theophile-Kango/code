@@ -1,8 +1,14 @@
 require 'set'
 
 def find_duplicates(array)
-  # write your code here
-  
+  s = Set.new 
+  arr = []
+  array.each do |item|
+    if !s.include?(item)
+        arr.push(item)
+    end
+    arr 
+  end
 end
 
 p find_duplicates([1, 2, 3, 1, 5, 6, 7, 8, 5, 2])
