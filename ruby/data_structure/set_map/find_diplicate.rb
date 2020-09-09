@@ -4,11 +4,13 @@ def find_duplicates(array)
   s = Set.new 
   arr = []
   array.each do |item|
-    if !s.include?(item)
+    if s.include?(item)
         arr.push(item)
+    else
+        s.add(item)
     end
-    arr 
   end
+  arr
 end
 
 p find_duplicates([1, 2, 3, 1, 5, 6, 7, 8, 5, 2])
