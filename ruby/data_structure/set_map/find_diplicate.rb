@@ -3,11 +3,11 @@ require 'set'
 def find_duplicates(array)
   s = Set.new 
   arr = []
-  array.each do |item|
-    if s.include?(item)
-        arr.push(item)
+  array.each do |element|
+    if s.include?(element)
+        arr << element
     else
-        s.add(item)
+        s.add(element)
     end
   end
   arr
