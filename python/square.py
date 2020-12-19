@@ -1,12 +1,5 @@
 def square_digits(num):
-    # my solution
-    pass
-    result = []
-    lst = list(map(int, str(num)))
-    for elt in lst:
-        result.append(elt * elt)
-
-    return int(''.join(str(e) for e in result))
+    return int(''.join(str(int(d)**2) for d in str(num)))
 
 
-print(square_digits(1234))
+print(square_digits(1934))
