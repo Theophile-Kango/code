@@ -11,7 +11,7 @@ function validParentheses(parens) {
 
   let length = parens.length / 2;
 
-  for (let i = 0; i <= length; ++i) {
+  for (let i = 0; i <= length; i += 1) {
     parens = parens.replace("()", "");
   }
 
