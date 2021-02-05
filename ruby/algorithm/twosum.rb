@@ -1,17 +1,22 @@
 def two_sum(nums, target)
     #nums = nums.delete_if{|el| el > target}
-    res = []
-    loop do
-        test = false
-        nums.length.times do |i|
-            if nums[i] + 2 == target
-                res << i
-                res << i+1
-                test = true
+    hash = nums.map.with_index.to_h
+    pair = []
+    i = 0
+    foundPair = false 
+    complement = 0
+    while(i < nums.size) && !foundPair do
+        complement = target - nums[i]
+        
+        if hash.has_key?(complement)
+            if i != hash[complement]
+                pair << i
+                pair << hash[complement]
+                foundPair = true
             end
         end
-        break unless test
+        i += 1
     end
-    res
+    return pair
 end
-p two_sum([2, 7, 11, 15],9)
+p two_sum([3, 3],6)
