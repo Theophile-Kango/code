@@ -1,5 +1,4 @@
 def two_sum(nums, target)
-    #nums = nums.delete_if{|el| el > target}
     hash = nums.map.with_index.to_h
     pair = []
     i = 0
